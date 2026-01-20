@@ -2,14 +2,18 @@ from fastapi import FastAPI
 from starlette.middleware.sessions import SessionMiddleware
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.auth import router as auth_router
-from app.workspaces import router as workspace_router
-from app.auto_upload import router as auto_upload_router
-from app.powerbi_folder_migration import router as folder_router
+# ✅ DIRECT imports (same directory)
+from auth import router as auth_router
+from workspaces import router as workspace_router
+from auto_upload import router as auto_upload_router
+from powerbi_folder_migration import router as folder_router
 
 
 app = FastAPI()
 
+# -------------------------
+# CORS
+# -------------------------
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -22,20 +26,27 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# -------------------------
+# Session middleware
+# -------------------------
 app.add_middleware(
     SessionMiddleware,
-    secret_key="super-secret-key",
+    secret_key="super-secret-key",  # ⚠️ move to env var in prod
     same_site="none",
     https_only=True
 )
 
+# -------------------------
+# Routers
+# -------------------------
 app.include_router(auth_router)
 app.include_router(workspace_router)
 app.include_router(auto_upload_router)
 app.include_router(folder_router)
 
+# -------------------------
+# Health check
+# -------------------------
 @app.get("/")
 def root():
     return {"status": "Backend running"}
-
-
