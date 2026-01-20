@@ -3,7 +3,7 @@ from azure.storage.blob import BlobServiceClient
 import pandas as pd
 import requests
 import os
-from app.config import (
+from config import (
     POWERBI_API,
     TARGET_WORKSPACE_ID,
     TEMPLATE_WORKSPACE_ID,
