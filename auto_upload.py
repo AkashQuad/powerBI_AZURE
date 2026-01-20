@@ -2,8 +2,8 @@ from fastapi import APIRouter, Request, HTTPException, Body
 import requests
 import time
 import pandas as pd
-from app.config import POWERBI_API
-from app.blob import download_empty_pbix, get_dataframes_from_blob
+from config import POWERBI_API
+from blob import download_empty_pbix, get_dataframes_from_blob
 
 router = APIRouter()
 
