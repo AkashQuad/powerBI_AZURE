@@ -1,27 +1,4 @@
-# # app/workspaces.py
-# from fastapi import APIRouter, Request, HTTPException
-# import requests
-# from app.config import POWERBI_API
 
-# router = APIRouter()
-
-# @router.get("/workspaces")
-# def get_workspaces(request: Request):
-#     access_token = request.session.get("access_token")
-
-#     if not access_token:
-#         raise HTTPException(status_code=401, detail="Not logged in")
-
-#     headers = {
-#         "Authorization": f"Bearer {access_token}"
-#     }
-
-#     resp = requests.get(f"{POWERBI_API}/groups", headers=headers)
-
-#     if resp.status_code != 200:
-#         raise HTTPException(status_code=resp.status_code, detail=resp.text)
-
-#     return resp.json()
 from fastapi import APIRouter, Request, HTTPException
 import requests
 from config import POWERBI_API
