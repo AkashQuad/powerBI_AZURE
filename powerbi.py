@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 import requests
-from app.config import POWERBI_API
-from app.blob import download_empty_pbix
+from config import POWERBI_API
+from blob import download_empty_pbix
 
 router = APIRouter()
 
