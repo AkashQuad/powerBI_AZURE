@@ -24,7 +24,7 @@
 #     return resp.json()
 from fastapi import APIRouter, Request, HTTPException
 import requests
-from app.config import POWERBI_API
+from config import POWERBI_API
 
 router = APIRouter()
 
