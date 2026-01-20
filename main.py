@@ -67,4 +67,4 @@ app.include_router(folder_router)
 
 @app.get("/")
 def root():
-return {"status": "Backend running"}
+  return {"status": "Backend running"}
