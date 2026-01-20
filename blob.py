@@ -1,7 +1,7 @@
 import io
 import pandas as pd
 from azure.storage.blob import BlobServiceClient
-from app.config import AZURE_STORAGE_CONNECTION_STRING, BLOB_CONTAINER, EMPTY_PBIX_NAME
+from config import AZURE_STORAGE_CONNECTION_STRING, BLOB_CONTAINER, EMPTY_PBIX_NAME
 
 def download_empty_pbix():
     """Downloads the template PBIX from blob storage."""
